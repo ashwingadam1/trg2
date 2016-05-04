@@ -1,4 +1,4 @@
-package my;
+package wordCount;
 
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;

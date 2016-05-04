@@ -1,4 +1,4 @@
-package my;
+package wordCount;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
