@@ -10,7 +10,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 public class AnaGramDriverClass {
 
 	public static void main(String[] args) throws Exception {
-		if (args.length != 2) {
+		if (args.length != 3) {
 			System.out.printf("Usage: StubDriver <input dir> <output dir>\n");
 			System.exit(-1);
 		}
@@ -29,8 +29,8 @@ public class AnaGramDriverClass {
 		// job.setInputFormatClass(FixedLengthInputFormat.class);
 		// FixedLengthInputFormat.setRecordLength(conf, 15);
 
-		FileInputFormat.addInputPath(job, new Path(args[0]));
-		FileOutputFormat.setOutputPath(job, new Path(args[1]));
+		FileInputFormat.addInputPath(job, new Path(args[1]));
+		FileOutputFormat.setOutputPath(job, new Path(args[2]));
 
 		boolean result = job.waitForCompletion(true);
 		System.exit(result ? 0 : 1);
