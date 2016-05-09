@@ -1,14 +1,13 @@
-package charatercount;
+package dnasequence;
 
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapred.JobConf;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
-public class CharDriver {
+public class DnaSeqGriver {
 
 	public static void main(String[] args) throws Exception {
 		if (args.length != 3) {
@@ -16,16 +15,16 @@ public class CharDriver {
 			System.exit(-1);
 		}
 		JobConf conf = new JobConf();
-		Job job = new Job(conf, "wordcount");
-		job.setJarByClass(CharDriver.class);
+		Job job = new Job(conf, "dnasequence");
+		job.setJarByClass(DnaSeqGriver.class);
 
-		job.setMapperClass(CharMapper.class);
-		job.setReducerClass(CharReducer.class);
+		job.setMapperClass(DnaSeqMapper.class);
+		job.setReducerClass(DnaSeqReducer.class);
 
 		job.setOutputKeyClass(Text.class);
-		job.setOutputValueClass(LongWritable.class);
+		job.setOutputValueClass(Text.class);
 		job.setMapOutputKeyClass(Text.class);
-		job.setMapOutputValueClass(LongWritable.class);
+		job.setMapOutputValueClass(Text.class);
 
 		// job.setInputFormatClass(FixedLengthInputFormat.class);
 		// FixedLengthInputFormat.setRecordLength(conf, 15);

@@ -13,6 +13,7 @@ public class AnaGramReducer extends Reducer<Text, Text, Text, Text> {
 		for (Text text : values) {
 			temp = new StringBuffer();
 			temp.append(text + " ");
+			System.gc();
 		}
 		context.write(key, new Text(temp.toString()));
 	}
