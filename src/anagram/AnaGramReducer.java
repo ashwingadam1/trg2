@@ -9,12 +9,10 @@ public class AnaGramReducer extends Reducer<Text, Text, Text, Text> {
 
 	public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
 
-		StringBuffer temp = null;
-		for (Text text : values) {
-			temp = new StringBuffer();
-			temp.append(text + " ");
-			System.gc();
+		StringBuffer buf = new StringBuffer();
+		for (Text val : values) {
+			buf.append(val+",");
 		}
-		context.write(key, new Text(temp.toString()));
+		context.write(key, new Text(buf.toString()));
 	}
 }
