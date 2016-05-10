@@ -32,7 +32,8 @@ public class VoteingDriverClass {
 		ChainMapper.addMapper(job, VoteingMapper.class, Text.class, Text.class, Text.class, Text.class, conf);
 		ChainReducer.setReducer(job, VoetingReducer.class, Text.class, Text.class, Text.class, LongWritable.class,
 				conf);
-		ChainReducer.setReducer(job, VoetingReducer2.class, Text.class, LongWritable.class, Text.class,
+		Job job2 = new Job(conf, "voteingprocessiog");
+		ChainReducer.setReducer(job2, VoetingReducer2.class, Text.class, LongWritable.class, Text.class,
 				LongWritable.class, conf);
 		// job.setInputFormatClass(FixedLengthInputFormat.class);
 		// FixedLengthInputFormat.setRecordLength(conf, 15);
