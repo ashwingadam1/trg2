@@ -1,0 +1,6 @@
+A = load '/user/ashwingadam8460/anagram/text1.txt';
+B = foreach A generate flatten(TOKENIZE((chararray)$0)) as word;
+C = foreach B generate flatten(TOKENIZE(REPLACE($0,'','|'),'|')) as letter;
+D = GROUP C BY letter;
+E = foreach D generate COUNT(C), group;
+dump E;

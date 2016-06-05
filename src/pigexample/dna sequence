@@ -1,0 +1,3 @@
+A = load '/user/ashwingadam8460/anagram/DNA.txt' using PigStorage(',') as (user:chararray,dna:chararray);
+B = group A by dna;
+dump B;
